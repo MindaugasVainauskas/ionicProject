@@ -7,12 +7,16 @@ angular.module('starter.controllers', [])
     }
     
     function addTask(newTask){
-        Tasks.addTask(newTask);
-        console.log(newTask);
+        Tasks.addTask(newTask);        
+    }
+    
+    function removeTask(task){
+        Tasks.removeTask(task);
     }
     
     $scope.addTask = addTask;
     $scope.taskData = taskData;
+    $scope.removeTask = removeTask;
     
 });
 

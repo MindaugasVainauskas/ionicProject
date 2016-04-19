@@ -1,6 +1,6 @@
 <ion-view view-title="Start Menu">
   <ion-content>
-    <h3>Task List</h3>
+    <h3 style="text-align:center">Task List</h3>
       
         
       <div class="item item-input-inset">
@@ -10,9 +10,13 @@
     </div>
       
       <div>
-        <ion-list ng-repeat="task in taskData.tasks">
-            <ion-item>{{task}}</ion-item>
+        <ion-list ng-repeat="task in taskData.tasks" show-delete = "canShowDelete">
+            <!-- next line adds task into the list and also implements delete function to delete task as well-->
+            <ion-item><ion-delete-button class="ion-minus-circled" ng-click="removeTask(task)"></ion-delete-button>{{task}}</ion-item>
           </ion-list>
+          <ion-toggle ng-model="canShowDelete">
+            Show Delete Buttons?
+          </ion-toggle>
       </div>
    
   </ion-content>

@@ -9,10 +9,15 @@ angular.module('starter.services', [])
         taskList.tasks.push(newTask);
     }
     
+    function removeTask(task){
+        taskList.tasks.splice(taskList.tasks.indexOf(task), 1);
+    }
+    
  
 
   return {
       taskList: taskList,
-      addTask: addTask   
+      addTask: addTask,
+      removeTask: removeTask
   };
 });
