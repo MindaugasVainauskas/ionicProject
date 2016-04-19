@@ -1,11 +1,18 @@
 angular.module('starter.services', [])
 
 .factory('Tasks', function() {
- var tasks = ['task1', 'task2', 'task3'];
+    var taskList ={
+         tasks: []
+    }
+ 
+    function addTask(newTask){        
+        taskList.tasks.push(newTask);
+    }
+    
  
 
   return {
-      tasks: tasks
-   
+      taskList: taskList,
+      addTask: addTask   
   };
 });

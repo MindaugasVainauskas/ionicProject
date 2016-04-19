@@ -1,13 +1,19 @@
 <ion-view view-title="Start Menu">
   <ion-content>
-    <h2>Placeholder for start menu</h2>
+    <h3>Task List</h3>
       
         
-      <div class="list" ng-repeat="task in tasks" style="padding:0">
-          <ion-item style="padding:0"><a class="button  button-full icon-right ion-chevron-right button clear">{{task}}</a></ion-item>      
-      </div>
-      <button class="button button-block button-positive">Start new to do list</button>
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper"><input type="text" placeholder = "Add New Task:" ng-model = "newTask"/>
+        </label>
+        <button class="button button-calm button-small" ng-click = "addTask(newTask)">Add Task</button>
+    </div>
       
+      <div>
+        <ion-list ng-repeat="task in taskData.tasks">
+            <ion-item>{{task}}</ion-item>
+          </ion-list>
+      </div>
    
   </ion-content>
 </ion-view>
