@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('startMenuCtrl', function($scope, Tasks) {
+.controller('singleTaskViewCtrl', function($scope, Tasks) {
     
     var taskData = {
         tasks: Tasks.taskList.tasks
@@ -17,6 +17,10 @@ angular.module('starter.controllers', [])
     $scope.addTask = addTask;
     $scope.taskData = taskData;
     $scope.removeTask = removeTask;
+    
+})
+
+.controller('taskNamesListCtrl', function($scope, Tasks){
     
 });
 

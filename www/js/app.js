@@ -30,19 +30,31 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
   // Each tab has its own nav history stack:
-
-  .state('tab.startMenu', {
-    url: '/startMenu',
+  
+  .state('tab.taskNamesList', {
+    url: '/taskNamesList',
     views: {
-      'tab-startMenu': {
-        templateUrl: 'templates/tab-startMenu.html',
-        controller: 'startMenuCtrl'
+      'tab-taskNamesList': {
+        templateUrl: 'templates/tab-taskNamesList.html',
+        controller: 'taskNamesListCtrl'
       }
     }
   })
 
+
+  .state('tab.singleTaskView', {
+    url: '/singleTaskView',
+    views: {
+      'tab-singleTaskView': {
+        templateUrl: 'templates/tab-singleTaskView.html',
+        controller: 'singleTaskViewCtrl'
+      }
+    }
+  })
+  
+  
   
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/startMenu');
+  $urlRouterProvider.otherwise('/tab/singleTaskView');
 
 });

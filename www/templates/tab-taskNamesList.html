@@ -1,0 +1,28 @@
+<ion-view view-title="Task Names">
+  <ion-content>
+      <div>
+        <h3 style="text-align:center">Task list names</h3>
+          <ion-toggle ng-model="canShowDelete">
+            Show Delete Buttons?
+          </ion-toggle>
+      </div>
+        
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper"><input type="text" placeholder = "Add New Task:" ng-model = "newTask"/>
+        </label>
+        <button class="button button-calm button-small" ng-click = "addTask(newTask)">Add Task</button>
+    </div>
+      
+      
+      
+      <div>
+        <ion-list ng-repeat="task in taskData.tasks" show-delete = "canShowDelete">
+            <!-- next line adds task into the list and also implements delete function to delete task as well -->
+            <!-- Added checkbox to show that task has been completed -->
+            <ion-item><ion-delete-button class="ion-minus-circled" ng-click="removeTask(task)"></ion-delete-button><ion-checkbox style="display:inline-block, padding : 0, margin: 0">{{task}}</ion-checkbox></ion-item><i class="icon ion-chevron-right icon-accessory"></i>
+          </ion-list>
+          
+      </div>
+   
+  </ion-content>
+</ion-view>
