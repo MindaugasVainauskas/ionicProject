@@ -4,6 +4,7 @@ angular.module('starter.controllers', [])
     $scope.taskData = Tasks.taskData;
     $scope.addTask = Tasks.addTask;
     $scope.removeTask = Tasks.removeTask;
+    $scope.updateChecked = Tasks.updateChecked;
     
 })
 
