@@ -1,27 +1,17 @@
 angular.module('starter.controllers', [])
 
-.controller('singleTaskViewCtrl', function($scope, Tasks) {
-    
-    var taskData = {
-        tasks: Tasks.taskList.tasks
-    }
-    
-    function addTask(newTask){
-        Tasks.addTask(newTask);        
-    }
-    
-    function removeTask(task){
-        Tasks.removeTask(task);
-    }
-    
-    $scope.addTask = addTask;
-    $scope.taskData = taskData;
-    $scope.removeTask = removeTask;
+.controller('singleTaskViewCtrl', function($scope, $stateParams, Tasks) {      
+    $scope.taskData = Tasks.taskData;
+    $scope.addTask = Tasks.addTask;
+    $scope.removeTask = Tasks.removeTask;
     
 })
 
-.controller('taskNamesListCtrl', function($scope, Tasks){
-    
+.controller('taskNamesListCtrl', function($scope, Tasks){      
+    $scope.taskData = Tasks.taskData;
+    $scope.addNewList = Tasks.addNewList;
+    $scope.removeTaskList = Tasks.removeTaskList;
+    $scope.setTaskId = Tasks.setTaskId;
 });
 
 

@@ -43,9 +43,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 
   .state('tab.singleTaskView', {
-    url: '/singleTaskView',
+    url: '/taskNamesList/:taskId',
     views: {
-      'tab-singleTaskView': {
+      'tab-taskNamesList': {
         templateUrl: 'templates/tab-singleTaskView.html',
         controller: 'singleTaskViewCtrl'
       }
@@ -55,6 +55,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   
   
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/singleTaskView');
+  $urlRouterProvider.otherwise('/tab/taskNamesList');
 
 });
