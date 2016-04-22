@@ -57,19 +57,17 @@ angular.module('starter.services', [])
     
     //update checked property inside taskList object
     function updateChecked(){
-       
+       //if isChecked property is set to false the function will change it to true
             if(taskData.taskList[taskData.taskId].tasks[taskData.subTaskId].isChecked === false){                
                 taskData.taskList[taskData.taskId].tasks[taskData.subTaskId].isChecked = true;              
             }else if(taskData.taskList[taskData.taskId].tasks[taskData.subTaskId].isChecked === true){
                 taskData.taskList[taskData.taskId].tasks[taskData.subTaskId].isChecked = false;                
-            }           
-        
-        console.log(taskData.taskList[taskData.taskId].tasks[taskData.subTaskId].isChecked);
+            }        
         //update local storage to reflect this change
          localStorage.setItem("tasks",JSON.stringify(taskData));
     }
   
-    
+    //return all functions and main wrapper variable object
   return {      
       addTask: addTask,
       removeTask: removeTask,

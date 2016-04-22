@@ -2,14 +2,17 @@
   <ion-content>
       <div>
         <h3 style="text-align:center">Task list names</h3>
+          <!-- Toggle to allow users to delete tasks -->
           <ion-toggle ng-model="canShowDelete">
-            Show Delete Buttons?
+            Show Delete Task list Buttons?
           </ion-toggle>
       </div>
         
+      <!-- Option to add new task list. once title is entered the user can start creating subtasks by clicking on the title and entering second view. -->
       <div class="item item-input-inset">
         <label class="item-input-wrapper"><input type="text" placeholder = "Add New Task:" ng-model = "newTask"/>
         </label>
+          <!-- call to create new task list -->
         <button class="button button-calm button-small" ng-click = "addNewList(newTask)">Add Task</button>
     </div>
       

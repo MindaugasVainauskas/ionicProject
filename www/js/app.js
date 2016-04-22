@@ -41,7 +41,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-
+  // subtask view that gets loaded when task title is clicked in main view
   .state('tab.singleTaskView', {
     url: '/taskNamesList/:taskId',
     views: {

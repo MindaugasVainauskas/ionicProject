@@ -1,6 +1,7 @@
 angular.module('starter.controllers', [])
 
-.controller('singleTaskViewCtrl', function($scope, Tasks) {      
+.controller('singleTaskViewCtrl', function($scope, Tasks) { 
+    //function calls and variable gets passed up from factory
     $scope.taskData = Tasks.taskData;
     $scope.addTask = Tasks.addTask;
     $scope.removeTask = Tasks.removeTask;
@@ -9,7 +10,8 @@ angular.module('starter.controllers', [])
     
 })
 
-.controller('taskNamesListCtrl', function($scope, Tasks){      
+.controller('taskNamesListCtrl', function($scope, Tasks){  
+    //function calls and variable gets passed up from factory
     $scope.taskData = Tasks.taskData;
     $scope.addNewList = Tasks.addNewList;
     $scope.removeTaskList = Tasks.removeTaskList;
