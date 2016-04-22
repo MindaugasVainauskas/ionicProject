@@ -1,10 +1,10 @@
 angular.module('starter.services', [])
 
-.factory('Tasks', function($rootScope) {
-    
-    
+.factory('Tasks', function($rootScope) {    
+    //main variable encapsulating the list of objects that hold title, checked status and list of subtasks
     var taskData ={ 
-         taskId: 0,         
+         taskId: 0,
+         subTaskId: 0,
          taskList:[]
     }
     
@@ -14,7 +14,7 @@ angular.module('starter.services', [])
     //add new task list with list title and an array to hold associated tasks
     function addNewList(title){
         //add new task list
-        taskData.taskList.push({title: title, isChecked: false, tasks: [] });       
+        taskData.taskList.push({title: title, tasks: [] });       
         localStorage.setItem("tasks",JSON.stringify(taskData));
     }
     
@@ -27,10 +27,15 @@ angular.module('starter.services', [])
     //add new subtask to list
     function addTask(newTask){          
         //add new task to existing list
-        taskData.taskList[taskData.taskId].tasks.push(newTask);
+        taskData.taskList[taskData.taskId].tasks.push({isChecked: false, task: newTask});
         
         //save the updated list in local storage
         localStorage.setItem("tasks",JSON.stringify(taskData));
+    }
+    
+    //set subtask Id for checkbox updates
+     function setSubTaskId(subIndex){
+        taskData.subTaskId = subIndex;
     }
     
     //remove selected subtask from the list
@@ -48,15 +53,18 @@ angular.module('starter.services', [])
         //update local storage to reflect it
          localStorage.setItem("tasks",JSON.stringify(taskData));
     } 
+   
     
     //update checked property inside taskList object
     function updateChecked(){
-        //set the checked property to different from what it currently is
-        if(taskData.taskList[taskData.taskId].isChecked === false){
-            taskData.taskList[taskData.taskId].isChecked = true;
-        }else if(taskData.taskList[taskData.taskId].isChecked === true){
-            taskData.taskList[taskData.taskId].isChecked = false;
-        }
+       
+            if(taskData.taskList[taskData.taskId].tasks[taskData.subTaskId].isChecked === false){                
+                taskData.taskList[taskData.taskId].tasks[taskData.subTaskId].isChecked = true;              
+            }else if(taskData.taskList[taskData.taskId].tasks[taskData.subTaskId].isChecked === true){
+                taskData.taskList[taskData.taskId].tasks[taskData.subTaskId].isChecked = false;                
+            }           
+        
+        console.log(taskData.taskList[taskData.taskId].tasks[taskData.subTaskId].isChecked);
         //update local storage to reflect this change
          localStorage.setItem("tasks",JSON.stringify(taskData));
     }
@@ -69,6 +77,7 @@ angular.module('starter.services', [])
       taskData: taskData,
       removeTaskList: removeTaskList,
       setTaskId: setTaskId,
-      updateChecked: updateChecked
+      updateChecked: updateChecked,
+      setSubTaskId: setSubTaskId
   };
 });

@@ -1,10 +1,11 @@
 angular.module('starter.controllers', [])
 
-.controller('singleTaskViewCtrl', function($scope, $stateParams, Tasks) {      
+.controller('singleTaskViewCtrl', function($scope, Tasks) {      
     $scope.taskData = Tasks.taskData;
     $scope.addTask = Tasks.addTask;
     $scope.removeTask = Tasks.removeTask;
     $scope.updateChecked = Tasks.updateChecked;
+    $scope.setSubTaskId = Tasks.setSubTaskId;
     
 })
 

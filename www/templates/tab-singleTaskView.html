@@ -5,6 +5,8 @@
           <ion-toggle ng-model="canShowDelete">
             Show Delete Buttons?
           </ion-toggle>
+          
+          
       </div>
         
       <!-- Ask user to add new task to the list -->
@@ -17,10 +19,12 @@
       
       <!-- show the list of tasks -->
       <div>
-        <ion-list ng-repeat="task in taskData.taskList[taskData.taskId].tasks track by $index" show-delete = "canShowDelete">
+        <ion-list ng-repeat="task in taskData.taskList[taskData.taskId].tasks track by $index" show-delete = "canShowDelete">            
             <!-- next line adds task into the list and also implements delete function to delete task as well -->
             <!-- Added checkbox to show that task has been completed -->
-            <ion-item><ion-delete-button class="ion-minus-circled" ng-click="removeTask(task)"></ion-delete-button><ion-checkbox onclick="updateChecked()">{{task}}</ion-checkbox></ion-item>
+            <ion-item ng-click="setSubTaskId($index); updateChecked()">
+                <ion-delete-button class="ion-minus-circled" ng-click="removeTask(task)"></ion-delete-button>
+                <ion-checkbox  ng-checked="taskData.taskList[taskData.taskId].tasks[$index].isChecked">{{task.task}}</ion-checkbox></ion-item>
           </ion-list>
           
       </div>
