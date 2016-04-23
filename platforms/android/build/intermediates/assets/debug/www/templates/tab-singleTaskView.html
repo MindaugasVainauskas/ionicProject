@@ -1,0 +1,36 @@
+<ion-view view-title="Sub-tasks">
+  <ion-content>      
+      <div>
+        <h3 style="text-align:center">{{taskData.taskList[taskData.taskId].title}}</h3>
+           <!-- Toggle to allow users to delete subtasks -->
+          <ion-toggle ng-model="canShowDelete">
+            Show Delete sub-task Buttons?
+          </ion-toggle>
+          
+          
+      </div>
+        
+      <!-- Ask user to add new task to the list -->
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper"><input type="text" placeholder = "Add New Task:" ng-model = "newTask"/>
+        </label>
+          <!-- call add new subtask function -->
+        <button class="button button-calm button-small" ng-click = "addTask(newTask)">Add Task</button>
+    </div>
+      
+      
+      <!-- show the list of subtasks -->
+      <div>
+        <ion-list ng-repeat="task in taskData.taskList[taskData.taskId].tasks track by $index" show-delete = "canShowDelete">            
+            <!-- next line adds task into the list and also implements delete function to delete task as well -->
+            <!-- Added checkbox to show that task has been completed -->
+            <ion-item ng-click="setSubTaskId($index); updateChecked()">
+                <ion-delete-button class="ion-minus-circled" ng-click="removeTask(task)"></ion-delete-button>
+                <!-- checkbox shows as checked if subtask has been checked before -->
+                <ion-checkbox  ng-checked="taskData.taskList[taskData.taskId].tasks[$index].isChecked">{{task.task}}</ion-checkbox></ion-item>
+          </ion-list>
+          
+      </div>
+   
+  </ion-content>
+</ion-view>

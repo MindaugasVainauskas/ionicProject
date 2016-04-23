@@ -1,0 +1,2 @@
+C:\Users\Mindaugas\Desktop\toDoList\platforms\android\build\intermediates\classes\debug
+C:\Users\Mindaugas\Desktop\toDoList\platforms\android\build\intermediates\pre-dexed\debug\classes-f4a307c209313dad75433abf94385c7d950fb5db.jar
